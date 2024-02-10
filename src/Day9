@@ -1,0 +1,99 @@
+Challenge 1
+
+public class Challenge1_Day9
+{
+    static void pattern1(int n)
+    {
+        if (0 >= n || n > 8)
+        {
+            throw new ArithmeticException("Enter integer values not less than or " +
+                    "equal to 0 or greater than 8");
+            //Throw an exception error if n is less than or equal to 0 or greater than 8
+        }
+        else
+        {
+            for (int row = 1; row <= n; row++)
+            {
+                /* First for loop corresponds to outer loop or rows (row)
+                row is set to 1. It will increment until row is greater than or equal to n.
+                 */
+                for (int col = 1; col <= row; col++)
+                {
+                    /* Second for loop corresponds to inner loop or columns (col)
+                    col is set to 1. It will increment until it is greater than or equal to row.
+                    A hash or series of hash in a column will be printed then it will stop looping
+                    if its equal to the value of the row. Then System.out.println will be executed
+                    and will loop again starting from the outer loop*/
+                    System.out.print("#");
+                    /* It should be print not println or else every incremented hash will be printed
+                    vertically not horizontally.
+                     */
+                }
+                System.out.println(" ");
+                /* Every second/inner for loop executed, a new row line will be printed. Then will
+                go back to the first/outer loop to execute a new set of hash.
+
+                The loop ends when it reaches n.
+                 */
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        pattern1(8);
+        //method pattern is called. User can enter the value they want inside the parenthesis.
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+Challenge 2
+public class Challenge2_Day9
+{
+    static void pattern2(int n)
+    {
+        if (0 >= n || n > 8)
+        {
+            throw new ArithmeticException("Enter integer values not less than or " +
+                    "equal to 0 or greater than 8");
+        }
+        else
+        {
+            for (int row = 1; row <= n; row++)
+            {
+                int noOfSpaces = n - row;
+                /* Since every row has a space except for the maximum value,
+                row will be subtracted from n. For instance, n is equals to 3,
+                3 - 1 = 2 which indicates the number of space needed until it
+                reaches 0 which is 3 - 3 = 0 which will be the end of noOfSpaces
+                loop
+                 */
+                for (int s = 0; s < noOfSpaces; s++)
+                {
+                    /*noOfSpaces is an inner loop and also corresponds with column (col)
+                    except its value is whitespace not hash*/
+                    System.out.print("  ");
+                    //Two whitespaces was used for symmetry
+                }
+                for (int col = 0; col < row; col++)
+                {
+                    System.out.print("# ");
+                    /* col is an inner loop. It is the same column with the noOfSpaces.
+                    Notice that noOfSpaces and col is print not println to prevent the hash
+                    being printed vertically.
+                     */
+                }
+                System.out.println();
+                /* Every inner for loop executed, a new row line through println. It will loop
+                again starting from the outer loop.
+
+                The loop ends when it reaches n.
+                 */
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        pattern2(3);
+    }
+}
+
